@@ -22,5 +22,6 @@ Get working usiing console.log()
 
 # additional functionality:
 
-    --change player
-    --UI place holders for each letter.
+    -- change player
+    -- UI place holders for each letter.
+    -- GET random words from API

@@ -1,77 +1,60 @@
-let randomWord = document.querySelector('.word').textContent;
-let guesses = document.querySelector('.guesses').textContent;
-let randomWordArray = [];
-let input = document.querySelector('.input').value;
+'use strict'
 
-const word = [
-    'Got',
-    'ability',
-    'shop',
-    'recall',
-    'fruit',
-    'easy',
-    'dirty',
-    'giant',
-    'shaking',
-    'ground',
-    'weather',
-    'lesson',
-    'almost',
-    'square',
-    'forward',
-    'bend',
-    'cold',
-    'broken',
-    'distant',
-    'adjective',
-    'disolve',
-    'orchestra',
-];
-//Generate random word
-const randomWordGen = function (word) {
-    let rndNum = Math.trunc(Math.random() * word.length) + 1;
-    randomWord = word[rndNum];
-    randomWordArray = randomWord.split('');
-    let rndWordLength = randomWordArray.length - 1;
-    guesses = '';
-    for (let i = 0; i <= rndWordLength; i++) {
-        guesses += ' █ ';
+const words = ['random','word','rainbow','supermarket','celestial']
+let storedWord = ''
+let guessOutput = []
+let input = null
+let incorrectGuesses = []
+
+// -- Generate a random word
+// -- Store the random word
+// -- Build array, same length as random word filled with Dashes.
+function randomWord(array){
+    let a= Math.floor(Math.random() * array.length)
+    storedWord = array[a]
+    for (let y = 0; y <guessOutput.length; y++){
+        guessOutput.pop()
     }
-    document.querySelector('.guesses').textContent = guesses;
-    document.querySelector('.word').textContent = randomWord;
-    console.log(randomWord);
-    console.log(randomWordArray);
-    return randomWord;
-};
-randomWordGen(word);
+    for (let x= 0; x<storedWord.length; x++){
+        guessOutput.push('_')
+    }
+    return storedWord
+}
+console.log(randomWord(words))
+console.log(guessOutput)
 
-//PLAYER INPUT VALUE
-document.querySelector('.submit').addEventListener('click', function (e) {
-    input = document.querySelector('.input').value;
-    let inputLowerCase = input.toLowerCase();
-    checkPlayerInput(inputLowerCase);
-    console.log(inputLowerCase);
-});
-
-//Check player input
-const checkPlayerInput = function (playerInput) {
-    for (let i = 0; i <= randomWordArray.length; i++) {
-        if (playerInput === randomWordArray[i]) {
-            console.log(i);
-            // console.log(addStr(guesses, i, playerInput));
-            document.querySelector('.guesses').textContent = guesses;
-            console.log(guesses);
-            console.log('Winner');
+function playerGuess(){
+    if(input==null){
+        input = prompt('Please enter a letter')
+        
+    }
+     for(let x = 0; x< storedWord.length;x++){
+        if(input === storedWord[x]){
+            guessOutput.splice(x,1,input)
         } else {
-            console.log('Loser!');
+            incorrectGuesses.push(input)
+
         }
     }
-};
-
-function addStr(str, index, stringToAdd) {
-    guesses =
-        str.substring(0, index) +
-        stringToAdd +
-        str.substring(index + 1, str.length - 1);
-    return guesses;
+    console.log(guessOutput)
+    console.log(incorrectGuesses)
+    return input
 }
+
+playerGuess()
+
+
+
+
+//     -- input a guess
+//     -- capture the incorrect guess (in guess storage)
+//     -- check vs guess amount limit.
+//     -- loop over random word and insert at correct index of guessArray.
+
+//     -- mark counter of correctGuesses: When === randomArray.length === WIN
+//             else continue back to line 10
+//     --
+
+// Get working usiing console.log()
+
+// -- Consider words with multiplle letters that appear more than once.
