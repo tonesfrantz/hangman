@@ -4,4 +4,10 @@
 
 body{
    background-color: rgb(230, 230, 68); 
+   margin: 3em;
+   
+}
+
+div {
+    padding: 1em;
 }

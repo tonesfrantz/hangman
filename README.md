@@ -14,11 +14,11 @@ traditional hangman game
 
     -- mark counter of correctGuesses: When === randomArray.length === WIN
             else continue back to line 10
+    -- Get working usiing console.log()
+    -- Consider words with multiplle letters that appear more than once.
+
+    -- create a UI and DOM manipulation using event listners to trigger functions
     --
-
-Get working usiing console.log()
-
--- Consider words with multiplle letters that appear more than once.
 
 # additional functionality:
 
