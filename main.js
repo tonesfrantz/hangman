@@ -1,50 +1,45 @@
-'use strict'
+'use strict';
 
-const words = ['random','word','rainbow','supermarket','celestial']
-let storedWord = ''
-let guessOutput = []
-let input = null
-let incorrectGuesses = []
+const words = ['random', 'word', 'rainbow', 'supermarket', 'celestial'];
+let storedWord = '';
+let guessOutputDash = [];
+let input = null;
+let incorrectGuesses = [];
 
 // -- Generate a random word
 // -- Store the random word
 // -- Build array, same length as random word filled with Dashes.
-function randomWord(array){
-    let a= Math.floor(Math.random() * array.length)
-    storedWord = array[a]
-    for (let y = 0; y <guessOutput.length; y++){
-        guessOutput.pop()
+function randomWord(array) {
+    let a = Math.floor(Math.random() * array.length);
+    storedWord = array[a];
+    for (let y = 0; y < guessOutputDash.length; y++) {
+        guessOutputDash.pop();
     }
-    for (let x= 0; x<storedWord.length; x++){
-        guessOutput.push('_')
+    for (let x = 0; x < storedWord.length; x++) {
+        guessOutputDash.push('_');
     }
-    return storedWord
+    return storedWord;
 }
-console.log(randomWord(words))
-console.log(guessOutput)
+console.log(randomWord(words));
+console.log(guessOutputDash);
 
-function playerGuess(){
-    if(input==null){
-        input = prompt('Please enter a letter')
-        
+function playerGuess() {
+    if (input == null) {
+        input = prompt('Please enter a letter');
     }
-     for(let x = 0; x< storedWord.length;x++){
-        if(input === storedWord[x]){
-            guessOutput.splice(x,1,input)
-        } else {
-            incorrectGuesses.push(input)
-
+    for (let x = 0; x < storedWord.length; x++) {
+        if (input === storedWord[x]) {
+            guessOutputDash.splice(x, 1, input);
         }
-    }
-    console.log(guessOutput)
-    console.log(incorrectGuesses)
-    return input
+    //     } else if (input !== incorrectGuesses[-1]) {
+    //         incorrectGuesses.push(input);
+    // }
+    console.log(guessOutputDash);
+    console.log(incorrectGuesses);
+    return input;
 }
 
-playerGuess()
-
-
-
+playerGuess();
 
 //     -- input a guess
 //     -- capture the incorrect guess (in guess storage)
