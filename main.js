@@ -48,6 +48,7 @@ guessBtn.addEventListener('click', () => {
 // Refactor all if and for.
 // Rename variables & functions.
 
-// Reset function
+// Reset function - make button reset.
+// Display last letter before displaying WIN or LOSE pop up alerts.
 // Disable guess button unless value in the input field
 // Create buttons for every letter

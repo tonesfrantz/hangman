@@ -11,6 +11,7 @@ window.addEventListener('load', function (windowLoadE) {
         button.setAttribute('data-letter', letter);
         button.onclick = function (e) {
             setLetter(this.getAttribute('data-letter'));
+            this.setAttribute('disabled', true);
         };
         p.appendChild(button);
         if (i == 74 || i == 83 || i == 90) {
@@ -21,6 +22,7 @@ window.addEventListener('load', function (windowLoadE) {
 function setLetter(letter) {
     input = letter.toLowerCase();
     playerGuess(input);
+
     // var div = document.getElementById('name');
     // div.innerHTML = div.innerHTML + letter;
 }

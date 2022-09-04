@@ -1,6 +1,7 @@
 'use strict';
 
 function reset() {
+    // location.reload();
     storedWord = '';
     storedWordLength = '';
     correctGuessesCount = 0;
