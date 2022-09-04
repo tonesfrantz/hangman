@@ -3,19 +3,20 @@
 const words = [
     'zoom',
     'feel',
-    // 'random',
-    // 'word',
-    // 'rainbow',
-    // 'supermarket',
-    // 'celestial',
-    // 'southern',
+    'random',
+    'word',
+    'rainbow',
+    'supermarket',
+    'celestial',
+    'southern',
 ];
 let storedWord = '';
 let storedWordLength = '';
-let correctGuesses = 0;
+let correctGuessesCount = 0;
+let incorrectGuessesLogCount = 0;
 let guessOutputDash = [];
 let input = null;
-let incorrectGuesses = [];
+let incorrectGuessesLog = [];
 
 const playBtn = document.querySelector('.btn_play');
 const guessBtn = document.querySelector('.btn_submit');
@@ -30,10 +31,15 @@ guessBtn.addEventListener('click', () => {
     playerGuess();
 });
 
+// Attempting testing, need assistance.
+// module.exports = {
+//     randomWord: randomWord(words),
+// };
+
 function randomWord(array) {
     let a = Math.floor(Math.random() * array.length);
     storedWord = array[a];
-    // guessDisplay.textContent = '';
+    guessDisplay.textContent = '';
     storedWordLength = storedWord.length;
     guessOutputDash = [];
     for (let x = 0; x < storedWord.length; x++) {
@@ -57,21 +63,23 @@ function playerGuess() {
             guessOutputDash.splice(x, 1, input);
             console.log(guessOutputDash);
             guessDisplay.textContent = guessOutputDash.toString();
-            correctGuesses++;
-            console.log(correctGuesses);
-            console.log(`correct ${input}`);
+            correctGuessesCount++;
+            console.log(`correct count: ${correctGuessesCount}`);
+            console.log(`correct log: ${input}`);
             guessValue = true;
         }
     }
 
     if (guessValue === false) {
-        incorrectGuesses.push(input);
-        console.log(incorrectGuesses);
-        incorrect.textContent = incorrectGuesses.toString();
-        console.log(`incorrect ${incorrectGuesses}`);
+        incorrectGuessesLog.push(input);
+        console.log(incorrectGuessesLog);
+        incorrect.textContent = incorrectGuessesLog.toString();
+        incorrectGuessesLogCount++;
+        console.log(`incorrect count: ${incorrectGuessesLogCount}`);
+        console.log(`incorrect log: ${incorrectGuessesLog}`);
     }
     guessValue = false;
-    if (correctGuesses === storedWordLength) {
+    if (correctGuessesCount === storedWordLength) {
         alert('You WON');
         return;
     }
@@ -89,3 +97,5 @@ function playerGuess() {
 // Create counter for incorrect guesses.
 // Refactor all if and for.
 // Rename variables & functions.
+
+//

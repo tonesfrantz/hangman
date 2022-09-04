@@ -1,0 +1,26 @@
+{
+    "name": "hangman",
+    "version": "1.0.0",
+    "description": "traditional hangman game",
+    "main": "main.js",
+    "directories": {
+        "test": "mocha"
+    },
+    "scripts": {
+        "test": "mocha || true"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tonesfrantz/hangman.git"
+    },
+    "author": "tony",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/tonesfrantz/hangman/issues"
+    },
+    "homepage": "https://github.com/tonesfrantz/hangman#readme",
+    "devDependencies": {
+        "chai": "^4.3.6",
+        "mocha": "^10.0.0"
+    }
+}
