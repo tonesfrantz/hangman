@@ -19,10 +19,11 @@ let input = null;
 let incorrectGuessesLog = [];
 
 const playBtn = document.querySelector('.btn_play');
-const guessBtn = document.querySelector('.btn_submit');
+const guessBtn = document.getElementById('buttonsHolder');
 const guessDisplay = document.querySelector('.guesses');
 const guessInput = document.querySelector('.input');
 const incorrect = document.querySelector('.incorrect');
+const canvas = document.getElementById('canvas');
 
 playBtn.addEventListener('click', () => {
     reset();
@@ -48,7 +49,11 @@ guessBtn.addEventListener('click', () => {
 // Refactor all if and for.
 // Rename variables & functions.
 
-// Reset function - make button reset.
-// Display last letter before displaying WIN or LOSE pop up alerts.
-// Disable guess button unless value in the input field
-// Create buttons for every letter
+// --- Reset function - make button reset.
+// --- Display last letter before displaying WIN or LOSE pop up alerts.
+
+// --- Create buttons for every letter
+
+// Carry on with completeing the hangman diagram
+// Create the Win/Lose Module
+// Clean up CSS so it looks great.

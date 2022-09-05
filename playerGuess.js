@@ -30,13 +30,19 @@ function playerGuess() {
     }
     guessValue = false;
     if (correctGuessesCount === storedWordLength) {
-        alert('You WON');
-        reset();
+        setTimeout(() => {
+            alert('You WON');
+            reset();
+        }, 500);
+
         return;
     }
     if (incorrectGuessesCount === 0) {
-        alert('you LOST... Sadface');
-        reset();
+        setTimeout(() => {
+            alert('you LOST... Sadface');
+            reset();
+        }, 500);
+
         return;
     }
     input = null;

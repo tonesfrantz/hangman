@@ -11,3 +11,22 @@ body{
 div {
     padding: 1em;
 }
+
+canvas {
+    display: block;
+    margin: auto;
+    border: 1px solid #000000;
+}
+
+#buttonsHolder {
+    margin-left: auto;
+    margin-right: auto;
+}
+p {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+button{
+    margin-right: 1em;
+}

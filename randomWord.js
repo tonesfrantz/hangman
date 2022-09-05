@@ -7,7 +7,7 @@ function randomWord(array) {
     storedWordLength = storedWord.length;
     guessOutputDash = [];
     for (let x = 0; x < storedWord.length; x++) {
-        guessOutputDash.push('_');
+        guessOutputDash.push(' _ ');
     }
     guessDisplay.textContent = guessOutputDash.toString();
     console.log(storedWord);

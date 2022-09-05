@@ -1,7 +1,8 @@
 'use strict';
 
 function reset() {
-    // location.reload();
+    playBtn.textContent = 'Reset';
+    disabledRemove();
     storedWord = '';
     storedWordLength = '';
     correctGuessesCount = 0;
@@ -12,4 +13,11 @@ function reset() {
     input = null;
     guessInput.value = null;
     randomWord(words);
+}
+
+function disabledRemove() {
+    let button = document.querySelectorAll('button');
+    button.forEach((e) => {
+        e.disabled = false;
+    });
 }
