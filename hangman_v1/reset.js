@@ -6,13 +6,16 @@ function reset() {
     storedWord = '';
     storedWordLength = '';
     correctGuessesCount = 0;
-    incorrectGuessesCount = 10;
+    incorrectGuessesCount = 0;
     guessOutputDash = [];
     incorrectGuessesLog = [];
     incorrect.textContent = incorrectGuessesLog.toString();
     input = null;
     guessInput.value = null;
     randomWord(words);
+    let { initialDrawing } = canvasCreator();
+    //initialDrawing would draw the frame
+    initialDrawing();
 }
 
 function disabledRemove() {

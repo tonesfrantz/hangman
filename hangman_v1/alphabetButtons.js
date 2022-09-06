@@ -18,6 +18,9 @@ window.addEventListener('load', function (windowLoadE) {
             holder.appendChild(p);
         }
     }
+    let { initialDrawing } = canvasCreator();
+    //initialDrawing would draw the frame
+    initialDrawing();
 });
 function setLetter(letter) {
     input = letter.toLowerCase();
