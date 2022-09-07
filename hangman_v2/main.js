@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 //Initial References
 const letterContainer = document.getElementById('letter-container');
@@ -55,8 +55,37 @@ const displayOptions = () => {
     optionsContainer.appendChild(buttonCon);
 };
 
+//Word Generator
+// Throwing an error on both the demo version and my version saying the options (fruits, animals etc) are not defined.
+// Wonder why it's throwing an error, I'm copying the code exactly as the demonstration.
+const generateWord = (optionValue) => {
+    let optionsButtons = document.querySelectorAll('.options');
+    //If optionValue mathces the button innerText then highlight the button
+    optionsButtons.forEach((button) => {
+        if (button.innerText.toLowerCase() === optionValue) {
+            button.classList.add('active');
+        }
+        button.disabled = true;
+    });
+};
+
 //Initial Function (Called when page loads/user presses new game)
 const initializer = () => {
     winCount = 0;
     count = 0;
+
+    //For creating letters buttons
+    for (let i = 65; i < 91; i++) {
+        let button = document.createElement('button');
+        button.classList.add('letters');
+        //Number to ASCII[A-Z]
+        button.innerText = String.fromCharCode(i);
+        letterContainer.append(button);
+    }
+
+    displayOptions();
 };
+
+//New Game
+newGameButton.addEventListener('click', initializer);
+window.onload = initializer;
