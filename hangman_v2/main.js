@@ -49,15 +49,13 @@ const displayOptions = () => {
     An Option</h3>`;
     let buttonCon = document.createElement('div');
     for (let value in options) {
-        buttonCon.innerHTML += `<button class = 'options' 
-        onclick ='generateWord(${value})'>${value}</button>`;
+        buttonCon.innerHTML += `<button class = "options" onclick ="generateWord('${value}')">${value}</button>`;
     }
     optionsContainer.appendChild(buttonCon);
 };
 
 //Word Generator
-// Throwing an error on both the demo version and my version saying the options (fruits, animals etc) are not defined.
-// Wonder why it's throwing an error, I'm copying the code exactly as the demonstration.
+
 const generateWord = (optionValue) => {
     let optionsButtons = document.querySelectorAll('.options');
     //If optionValue mathces the button innerText then highlight the button
@@ -67,6 +65,36 @@ const generateWord = (optionValue) => {
         }
         button.disabled = true;
     });
+    //initially hide letters, clear previous word
+    letterContainer.classList.remove('hide');
+    userInputSection.innerText = '';
+
+    let optionArray = options[optionValue];
+    //choose random word
+    chosenWord = optionArray[Math.floor(Math.random() * optionArray.length)];
+    chosenWord = chosenWord.toUpperCase();
+    console.log(chosenWord);
+
+    //replace every letter with span containing dash
+    let displayItem = chosenWord.replace(/./g, '<span class="dashes">_</span>');
+    //Display each element in span
+    userInputSection.innerHTML = displayItem;
+};
+
+//Block all the Buttons
+const blocker = () => {
+    let optionsButtons = document.querySelectorAll('.options');
+    let letterButtons = document.querySelectorAll('.letters');
+    //disable all options
+    optionsButtons.forEach((button) => {
+        button.disabled = true;
+    });
+
+    //disable all letters
+    letterButtons.forEach((button) => {
+        button.disabled.true;
+    });
+    newGameContainer.classList.remove('hide');
 };
 
 //Initial Function (Called when page loads/user presses new game)
