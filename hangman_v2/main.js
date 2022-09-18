@@ -141,11 +141,11 @@ const initializer = () => {
                 //lose count
                 count += 1;
                 //for drawing man
-                // drawMan(count);
+                drawMan(count);
                 //Count ==6 because head, body, left arm, right arm, left leg, right leg
                 if (count == 6) {
                     resultText.innerHTML = `<h2 
-                    class='win-msg'>You Lose!!!</h2>
+                    class='lose-msg'>You Lose!!!</h2>
                     <p>The word was <span>${chosenWord}</span></p>`;
                     blocker();
                 }
@@ -169,6 +169,83 @@ const canvasCreator = () => {
     context.beginPath();
     context.strokeStyle = '#000';
     context.lineWidth = 2;
+
+    //For drawuing lines
+    const drawLine = (fromX, fromY, toX, toY) => {
+        context.moveTo(fromX, fromY);
+        context.lineTo(toX, toY);
+        context.stroke();
+    };
+
+    const head = () => {
+        //Create multi-color random select of lines
+        context.beginPath();
+        context.arc(70, 30, 10, 0, Math.PI * 2, true);
+        context.stroke();
+    };
+
+    const body = () => {
+        drawLine(70, 40, 70, 80);
+    };
+
+    const leftArm = () => {
+        drawLine(70, 50, 50, 70);
+    };
+
+    const rightArm = () => {
+        drawLine(70, 50, 90, 70);
+    };
+
+    const leftLeg = () => {
+        drawLine(70, 80, 50, 110);
+    };
+
+    const rightleg = () => {
+        drawLine(70, 80, 90, 110);
+    };
+
+    //initail frame
+    const initialDrawing = () => {
+        //clear canvas
+        context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+        //bottom line
+        drawLine(10, 130, 130, 130);
+        //left line
+        drawLine(10, 10, 10, 131);
+        //topline
+        drawLine(10, 10, 70, 10);
+        //small top line
+        drawLine(70, 10, 70, 20);
+    };
+
+    return { initialDrawing, head, body, leftArm, rightArm, leftLeg, rightleg };
+};
+
+//draw the man
+const drawMan = (count) => {
+    let { head, body, leftArm, rightArm, leftLeg, rightleg } = canvasCreator();
+    switch (count) {
+        case 1:
+            head();
+            break;
+        case 2:
+            body();
+            break;
+        case 3:
+            leftArm();
+            break;
+        case 4:
+            rightArm();
+            break;
+        case 5:
+            leftLeg();
+            break;
+        case 6:
+            rightleg();
+            break;
+        default:
+            break;
+    }
 };
 
 //New Game
