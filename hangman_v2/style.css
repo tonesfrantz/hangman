@@ -8,6 +8,17 @@
 body{
     background-color: #f4c531;
 }
+#refresh{
+    padding:0.3em;
+    margin-left: 1em;
+    background-color: transparent;
+    border-radius: 0.4em;
+}
+h1{
+    /* display: flex; */
+    text-align: center;
+    margin-top: 1em;
+}
 .container{
     font-size: 16px;
     background-color: #ffffff;
