@@ -58,7 +58,7 @@ const displayOptions = () => {
 
 const generateWord = (optionValue) => {
     let optionsButtons = document.querySelectorAll('.options');
-    //If optionValue mathces the button innerText then highlight the button
+    //If optionValue matches the button innerText then highlight the button
     optionsButtons.forEach((button) => {
         if (button.innerText.toLowerCase() === optionValue) {
             button.classList.add('active');
@@ -82,7 +82,7 @@ const generateWord = (optionValue) => {
 };
 
 //Block all the Buttons
-const blocker = () => {
+async function blocker() {
     let optionsButtons = document.querySelectorAll('.options');
     let letterButtons = document.querySelectorAll('.letters');
     //disable all options
@@ -94,8 +94,13 @@ const blocker = () => {
     letterButtons.forEach((button) => {
         button.disabled.true;
     });
+    await sleep(1);
     newGameContainer.classList.remove('hide');
-};
+}
+
+async function sleep(seconds) {
+    return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+}
 
 //Initial Function (Called when page loads/user presses new game)
 const initializer = () => {
@@ -242,6 +247,7 @@ const drawMan = (count) => {
             break;
         case 6:
             rightleg();
+
             break;
         default:
             break;
