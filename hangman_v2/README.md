@@ -12,7 +12,6 @@
 # [X] Code along to online demonstartion and then make your own
 
 -   [ ] Change List of words and genre
--   [ ] Easy, Medium, Hard Pop up module
 -   [x] Link up refresh button
 -   [ ] Refactor JS to be seen across a multiple pages.
 -   [ ] Change color scheme
